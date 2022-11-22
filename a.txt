@@ -1,0 +1,73 @@
+create database test
+
+use test
+
+--Creating Books Table
+create table BooksStore
+(
+ID int primary key identity(101,1),
+Category varchar(20) Not Null,
+[Name] varchar(35) Not Null,
+ShelfNumber int Not Null,
+Price decimal(18,1) Not Null,
+AvailabilityStatus int default 1 Null,
+[UID] int foreign key references users(ID) Null
+)
+
+
+--Creating Users Table
+create table users
+(
+ID int primary key identity(201,1),
+[Name] varchar(30) Not Null
+)
+
+
+--Inserting 10 users into the table
+insert into users ([Name])
+values 
+('User-1'),
+('User-2'),
+('User-3'),
+('User-4'),
+('User-5'),
+('User-6'),
+('User-7'),
+('User-8'),
+('User-9'),
+('User-10')
+
+
+
+
+--Inserting 20 books data into Books Table
+insert into BooksStore(Category, [Name], ShelfNumber, Price, AvailabilityStatus,[UID])
+values
+
+--Category-1 books(Category, Name, ShelfNumber, Price, AvailabilityStatus,UID )
+('Category-1','Book-1',1,110,0,102),
+('Category-1','Book-2',1, 105,1,103),
+('Category-1','Book-3',1, 115,0,103),
+('Category-1','Book-4',1,120,1,103),
+('Category-1','Book-5',1,125,1,103),
+--Category-2 books(Category, Name, ShelfNumber, Price, AvailabilityStatus,UID )
+('Category-2','Book-6',1,110,0,102),
+('Category-2','Book-7',1, 105,1,103),
+('Category-2','Book-8',1, 115,0,103),
+('Category-2','Book-9',1,120,1,103),
+('Category-2','Book-10',1,125,1,103),
+--Category-3 books(Category, Name, ShelfNumber, Price, AvailabilityStatus,UID )
+('Category-3','Book-11',1,110,0,102),
+('Category-3','Book-12',1, 105,1,103),
+('Category-3','Book-13',1, 115,0,103),
+('Category-3','Book-14',1,120,1,103),
+('Category-3','Book-15',1,125,1,103),
+--Category-4 Books(Category, Name, ShelfNumber, Price, AvailabilityStatus,UID )
+('Category-4','Book-16',1,110,0,102),
+('Category-4','Book-17',1, 105,1,103),
+('Category-4','Book-18',1, 115,0,103),
+('Category-4','Book-19',1,120,1,103),
+('Category-4','Book-20',1,125,1,103)
+
+select * from BooksStore
+select * from users
